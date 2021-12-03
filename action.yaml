@@ -1,4 +1,4 @@
-name: "CO2"
+name: "CO2 CI"
 description: "Get notified about your website's carbon emissions on commits & PRs along with some fun facts about it!"
 inputs:
   url:
