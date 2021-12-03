@@ -1,0 +1,30 @@
+{
+  "name": "co2",
+  "version": "1.0.0",
+  "description": "A GitHub action that notifies you about your website's carbon emissions and gives you some fun facts about it",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeopJr/co2.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "Lighthouse",
+    "Website Carbon",
+    "Carbon",
+    "CO2"
+  ],
+  "author": "GeopJr",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/GeopJr/co2/issues"
+  },
+  "homepage": "https://github.com/GeopJr/co2#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0",
+    "chrome-launcher": "^0.15.0",
+    "lighthouse": "^9.1.0"
+  }
+}

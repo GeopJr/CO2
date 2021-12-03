@@ -1,0 +1,16 @@
+name: Test CO2
+on: [push, pull_request]
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    # Don't run when event is a PR from the same repo (not a fork)
+    # This avoids double comments
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository
+    steps:
+      - uses: actions/checkout@v2
+      - name: Calculate CO2 🌱 for "https://geopjr.dev/"
+        uses: ./
+        with:
+          url: "https://geopjr.dev/"
+          renewable: true

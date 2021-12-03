@@ -1,0 +1,31 @@
+name: Docker
+
+on:
+  push:
+    branches:
+      - main
+env:
+  REGISTRY: docker.io
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: "contains(github.event.head_commit.message, '[docker-build]')"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Prepare ignores
+        run: mv -f Dockerfile.base.dockerignore .dockerignore
+      - name: Log into registry ${{ env.REGISTRY }}
+        uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: geopjr
+          password: ${{ secrets.DOCKER_TOKEN }}
+      - name: Build and push Docker image
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          context: .
+          file: Dockerfile.base
+          push: true
+          tags: |
+            geopjr/co2-node-chromium-pnpm:stable

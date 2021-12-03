@@ -1,0 +1,35 @@
+name: "CO2"
+description: "Get notified about your website's carbon emissions on commits & PRs along with some fun facts about it!"
+inputs:
+  url:
+    description: "The url to check (please include the protocol eg. https://)"
+    required: true
+  comment:
+    description: "Whether to create commit & PR comments"
+    required: false
+    default: "true"
+  token:
+    description: "Token used for creating comments"
+    required: false
+    default: ${{ github.token }}
+  renewable:
+    description: "Whether to check if the website uses renewable energy (calls external service)"
+    required: false
+    default: "false"
+  nerds:
+    description: "Whether to include 'Stats for nerds' (comment only)"
+    required: false
+    default: "true"
+  footer:
+    description: "Whether to include the footer (comment only)"
+    required: false
+    default: "true"
+outputs:
+  nerds:
+    description: "'Stats for nerds' (in JSON)"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+branding:
+  icon: "cloud-off"
+  color: "green"

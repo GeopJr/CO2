@@ -1,0 +1,7 @@
+FROM node:lts-slim
+
+ADD package.json pnpm-lock.yaml /
+
+RUN  apt-get update && apt-get install -y chromium && npm install -g pnpm && pnpm install
+
+ENV CHROME_BIN="/usr/bin/chromium"
