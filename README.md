@@ -13,7 +13,7 @@
 CO2 (the action) will calculate your website's carbon emissions based on the amount of data it transfers to the client, as well as notify you if your host is using renewable or bog standard energy, along with how much CO2 you could not emit by switching to one that uses renewable energy (if not on one already).
 Some fun (or not so fun) facts about it in the long run will also be included!
 
-To stay on par with [Website Carbon Calculator](websitecarbon.com/) without spamming their API, the same functions happen locally.
+To stay on par with [Website Carbon Calculator](https://websitecarbon.com/) without spamming their API, the same functions happen locally.
 This includes their [calculations](https://gitlab.com/wholegrain/carbon-api-2-0) as well as their way of getting the amount transferred data (lighthouse).
 
 The renewable energy data is provided by the [The Green Web Foundation](https://www.thegreenwebfoundation.org/), however since it relies on an external API, it is disabled by default.
@@ -33,7 +33,7 @@ The action uses a prebuilt Docker image based on node:lts-slim with chromium and
 A basic workflow would be:
 
 ```yaml
-# .github/workflows/CO2.yml
+# .github/workflows/CO2.yaml
 name: Calculate CO2 🌱
 # You can remove any you don't want
 on: [push, pull_request]
@@ -53,7 +53,7 @@ jobs:
 
 | Key         |       Default       | Required | Description                                                                    |
 | ----------- | :-----------------: | :------: | ------------------------------------------------------------------------------ |
-| `url`       |          -          |    ✅    | The url to check (please include the protocol eg. https://)                    |
+| `url`       |          -          |    ✅    | The url to check (please include the protocol eg. `https://`)                  |
 | `comment`   |       `true`        |    ❌    | Whether to create commit & PR comments                                         |
 | `token`     | `${{github.token}}` |    ❌    | Token used for creating comments                                               |
 | `renewable` |       `false`       |    ❌    | Whether to check if the website uses renewable energy (calls external service) |
@@ -69,7 +69,7 @@ You can combine actions and create cases for more control, here's some:
 <details><summary>Conditional based on event</summary>
 
 ```yaml
-# .github/workflows/CO2.yml
+# .github/workflows/CO2.yaml
 name: Calculate CO2 🌱
 
 on: [push, pull_request]
@@ -102,7 +102,7 @@ This uses an external actions, please read the following before using:
 - https://github.com/JakePartusch/wait-for-netlify-action
 
 ```yaml
-# .github/workflows/CO2.yml
+# .github/workflows/CO2.yaml
 name: Calculate CO2 🌱
 
 on: [push, pull_request]
@@ -134,7 +134,7 @@ This uses an external actions, please read the following before using:
 - https://github.com/UnlyEd/github-action-await-vercel
 
 ```yaml
-# .github/workflows/CO2.yml
+# .github/workflows/CO2.yaml
 name: Calculate CO2 🌱
 
 on: [push, pull_request]
