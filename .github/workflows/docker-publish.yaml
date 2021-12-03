@@ -16,13 +16,13 @@ jobs:
       - name: Prepare ignores
         run: mv -f Dockerfile.base.dockerignore .dockerignore
       - name: Log into registry ${{ env.REGISTRY }}
-        uses: docker/login-action@1cce1654e01caa87cc0eac1c100e6749708affb9
+        uses: docker/login-action@v1
         with:
           registry: ${{ env.REGISTRY }}
           username: geopjr
           password: ${{ secrets.DOCKER_TOKEN }}
       - name: Build and push Docker image
-        uses: docker/build-push-action@b1aeb1103e6b3b5648dbd6deaf0559919456ca6b
+        uses: docker/build-push-action@v2
         with:
           context: .
           file: Dockerfile.base
