@@ -16,7 +16,7 @@ jobs:
       - name: Prepare ignores
         run: mv -f Dockerfile.base.dockerignore .dockerignore
       - name: Log into registry ${{ env.REGISTRY }}
-        uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
+        uses: docker/login-action@1cce1654e01caa87cc0eac1c100e6749708affb9
         with:
           registry: ${{ env.REGISTRY }}
           username: geopjr
